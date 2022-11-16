@@ -1,3 +1,4 @@
+import java.time.zone.ZoneRules;
 import java.util.Scanner; 
 // import the Scanner class 
 
@@ -7,11 +8,15 @@ class Main {
     Scanner scan = new Scanner(System.in);
     String sentence;
     char c = '"';
+    char c2 = '.';
     int count = 0;
+    int count2 = 0;
 
     boolean capLetter = false;
     boolean quotesEven = false;
     boolean sentenceEnd = false;
+    boolean periodCheck = false;
+    boolean numbersValid = false;
     
     // Enter sentence and press Enter
     System.out.println("Enter Sentence");
@@ -23,12 +28,7 @@ class Main {
 
     if (Character.isUpperCase(sentence.charAt(0)))
     {
-        System.out.println("Sentence is valid ");
         capLetter = true;
-    }
-    else
-    {
-        System.out.println("Sentence is invalid ");
     }
 
     //Check for an even amount of quotation marks ("")
@@ -40,12 +40,7 @@ class Main {
 
     if (count % 2 == 0 ) 
     {
-        System.out.println("Sentence is valid ");
         quotesEven = true;
-    }
-    else 
-    {
-        System.out.println("Sentence is invalid ");
     }
 
     //checking sentence ends in "!", "?", or "."
@@ -54,19 +49,59 @@ class Main {
         sentence.charAt(inputLength - 1) == '?' ||
         sentence.charAt(inputLength - 1) == '.')
     {
-
-    System.out.println("Sentence Valid");
     sentenceEnd = true;
+    }
+
+    // checking sentence doesn't contain "." throughout
+
+    for(int x=0; x < sentence.length() - 2; x++)
+    {    if(sentence.charAt(x) == c2)
+            count2++;
+    }
+    if(count2 == 0)
+    {
+        sentenceEnd = true;
+    }
+
+    //Numbers below 13 are spelled out
+
+    char[] c3 = sentence.toCharArray();
+    StringBuilder sb = new StringBuilder();
+    for(char c4 : c3)
+    {
+       if(Character.isDigit(c4))
+       {
+          sb.append(c4);
+       }
+    }
+    String string = sb.toString();
+    int z = Integer.parseInt(string);
+
+    System.out.println(z);
+
+    if (z > 12)
+    {
+        numbersValid = true;
+    }
+    else if (z < 13)
+    {
+        numbersValid = false;
+    }
+
+    //Checking everything is valid
+
+    if (capLetter == true &&
+    quotesEven == false &&
+    sentenceEnd == false &&
+    periodCheck == false &&
+    numbersValid == false)
+    {
+        System.out.println("Sentence valid");
     }
     else
     {
-    System.out.println("Sentence invalid");
+        System.out.println("Sentence invalid");
     }
-
-    
-
-
-
 
     scan.close();
   }
