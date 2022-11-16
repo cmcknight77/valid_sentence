@@ -11,12 +11,13 @@ class Main {
 
     boolean capLetter = false;
     boolean quotesEven = false;
+    boolean sentenceEnd = false;
     
     // Enter sentence and press Enter
     System.out.println("Enter Sentence");
     sentence = scan.nextLine();   
-       
-    System.out.println("Sentence is: " + sentence);   
+
+    int inputLength = sentence.length(); 
     
     //Check for Uppercase start of string
 
@@ -46,6 +47,25 @@ class Main {
     {
         System.out.println("Sentence is invalid ");
     }
+
+    //checking sentence ends in "!", "?", or "."
+
+    if (sentence.charAt(inputLength - 1) == '!' || 
+        sentence.charAt(inputLength - 1) == '?' ||
+        sentence.charAt(inputLength - 1) == '.')
+    {
+
+    System.out.println("Sentence Valid");
+    sentenceEnd = true;
+    }
+    else
+    {
+    System.out.println("Sentence invalid");
+    }
+
+    
+
+
 
 
     scan.close();
