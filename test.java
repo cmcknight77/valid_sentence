@@ -4,15 +4,21 @@ import java.util.Scanner;
 
 class Main {
   public static void main(String[] args) {
-    Scanner myObj = new Scanner(System.in);
+    Scanner scan = new Scanner(System.in);
     String sentence;
+    char c = '"';
+    int count = 0;
+
     boolean capLetter = false;
+    boolean quotesEven = false;
     
-    // Enter username and press Enter
+    // Enter sentence and press Enter
     System.out.println("Enter Sentence");
-    sentence = myObj.nextLine();   
+    sentence = scan.nextLine();   
        
-    System.out.println("Sentence is: " + sentence);        
+    System.out.println("Sentence is: " + sentence);   
+    
+    //Check for Uppercase start of string
 
     if (Character.isUpperCase(sentence.charAt(0)))
     {
@@ -24,10 +30,24 @@ class Main {
         System.out.println("Sentence is invalid ");
     }
 
+    //Check for an even amount of quotation marks ("")
+
+    for(int i=0; i < sentence.length(); i++)
+    {    if(sentence.charAt(i) == c)
+            count++;
+    }
+
+    if (count % 2 == 0 ) 
+    {
+        System.out.println("Sentence is valid ");
+        quotesEven = true;
+    }
+    else 
+    {
+        System.out.println("Sentence is invalid ");
+    }
 
 
-    myObj.close();
+    scan.close();
   }
 }
-
-
