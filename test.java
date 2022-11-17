@@ -1,7 +1,6 @@
-import java.time.zone.ZoneRules;
+
 import java.util.Scanner; 
 // import the Scanner class 
-
 
 class Main {
   public static void main(String[] args) {
@@ -37,7 +36,6 @@ class Main {
     {    if(sentence.charAt(i) == c)
             count++;
     }
-
     if (count % 2 == 0 ) 
     {
         quotesEven = true;
@@ -77,8 +75,6 @@ class Main {
     String string = sb.toString();
     int z = Integer.parseInt(string);
 
-    System.out.println(z);
-
     if (z > 12)
     {
         numbersValid = true;
@@ -91,10 +87,10 @@ class Main {
     //Checking everything is valid
 
     if (capLetter == true &&
-    quotesEven == false &&
-    sentenceEnd == false &&
-    periodCheck == false &&
-    numbersValid == false)
+    quotesEven == true &&
+    sentenceEnd == true &&
+    periodCheck == true &&
+    numbersValid == true)
     {
         System.out.println("Sentence valid");
     }
