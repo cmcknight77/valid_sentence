@@ -9,6 +9,7 @@ For the purposes of this problem, a “valid” sentence is defined as:
 - Numbers below 13 are spelled out (”one”, “two”, &quot;three”, etc…).
 
 Here are some examples:
+
 Valid sentences:
 The quick brown fox said “hello Mr lazy dog”.
 The quick brown fox said hello Mr lazy dog.
