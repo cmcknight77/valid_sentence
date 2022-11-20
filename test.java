@@ -73,7 +73,15 @@ class Main {
        }
     }
     String string = sb.toString();
-    int z = Integer.parseInt(string);
+    int z = 0;
+
+    try{
+    z = Integer.parseInt(string);
+    }
+    catch (NumberFormatException ex)
+    {
+        ex.printStackTrace();
+    }
 
     if (z > 12)
     {
@@ -98,7 +106,6 @@ class Main {
     {
         System.out.println("Sentence invalid");
     }
-
     scan.close();
   }
 }
