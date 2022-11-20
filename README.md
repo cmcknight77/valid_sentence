@@ -7,6 +7,7 @@ For the purposes of this problem, a “valid” sentence is defined as:
 - String ends with one of the following sentence termination characters: &quot;.&quot;, &quot;?&quot;, &quot;!&quot;
 - String has no period characters other than the last character.
 - Numbers below 13 are spelled out (”one”, “two”, &quot;three”, etc…).
+
 Here are some examples:
 Valid sentences:
 The quick brown fox said “hello Mr lazy dog”.
